@@ -1,41 +1,146 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3950477874605758"
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3950477874605758"
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>الصفحة الرئيسية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Overlay White Borders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: Arial; direction: rtl; background: #f4f4f4; margin: 0; }
-        header, footer { background: #222; color: #fff; padding: 15px; text-align: center; }
-        nav a { color: #fff; margin: 0 10px; text-decoration: none; }
-        main { padding: 20px; background: #fff; margin: 20px; }
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #050510;
+        }
+
+        /* ستارة النجوم المتحركة */
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* تأثير التوهج للحدود البيضاء */
+        .white-border {
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(10, 10, 30, 0.3);
+        }
+
+        /* أيقونات ثابتة */
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+        }
+
+        .name-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>مرحباً بكم في موقعي</h1>
-    <nav>
-        <a href="index.html">الرئيسية</a>
-        <a href="about.html">من نحن</a>
-        <a href="privacy.html">سياسة الخصوصية</a>
-        <a href="contact.html">تواصل معنا</a>
-    </nav>
-</header>
+    <canvas id="starfield"></canvas>
 
-<main>
-    <p>
-        هذا موقع تعريفي بسيط يهدف إلى تقديم محتوى معلوماتي عام في مجالات التقنية والإنترنت.
-    </p>
-    <p>
-        تم إنشاء هذا الموقع للالتزام بمتطلبات Google AdSense وربطه بقناة يوتيوب.
-    </p>
-</main>
+    <div class="relative h-screen w-screen p-6 flex flex-col gap-4">
+        
+        <!-- القسم العلوي: شاشة اللعبة والشات -->
+        <div class="flex flex-1 gap-4">
+            <!-- إطار اللعبة الرئيسي -->
+            <div class="flex-[3] white-border relative">
+                <div class="absolute top-2 left-4 text-white/20 text-xs uppercase tracking-widest">Main Display</div>
+            </div>
+            
+            <!-- إطار الكاميرا أو الشات الجانبي -->
+            <div class="flex-1 white-border relative">
+                <div class="absolute top-2 left-4 text-white/20 text-xs uppercase tracking-widest">Side Bar</div>
+            </div>
+        </div>
 
-<footer>
-    <p>© 2025 جميع الحقوق محفوظة</p>
-</footer>
+        <!-- القسم السفلي: معلومات الحساب -->
+        <div class="h-32 white-border flex items-center px-8 justify-between">
+            <div class="flex items-center gap-6">
+                <div class="flex gap-3">
+                    <!-- Instagram -->
+                    <div class="social-icon bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <!-- TikTok -->
+                    <div class="social-icon bg-black flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-white"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.28-2.26.74-4.63 2.58-5.91 1.05-.75 2.31-1.21 3.61-1.28.18 1.43.14 2.87.14 4.3-.47.03-.95.11-1.39.3-.9.39-1.62 1.14-1.92 2.06-.31.9-.22 1.94.27 2.77.46.78 1.25 1.34 2.13 1.5.88.17 1.83.02 2.6-.45.95-.56 1.58-1.57 1.75-2.65.12-1.04.11-2.09.11-3.13.01-4.9.01-9.8.01-14.71z"/></svg>
+                    </div>
+                    <!-- Twitch -->
+                    <div class="social-icon bg-[#9146FF] flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-white"><path d="M2.149 0l-1.612 4.119v16.827h5.062v3.054l3.054-3.054h4.119l7.712-7.712v-13.234h-18.335zm16.508 12.019l-3.504 3.504h-4.277l-2.458 2.458v-2.458h-3.354v-13.142h13.593v9.638zm-3.054-6.411h-1.833v5.498h1.833v-5.498zm-4.581 0h-1.833v5.498h1.833v-5.498z"/></svg>
+                    </div>
+                </div>
+                <div class="name-text text-4xl">MQ_175</div>
+            </div>
+            <div class="text-white/30 text-sm font-mono tracking-tighter">LIVE SESSION // 2026</div>
+        </div>
+    </div>
 
+    <script>
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+
+        let stars = [];
+        const numStars = 200;
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            stars = [];
+            for (let i = 0; i < numStars; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speed: Math.random() * 0.5 + 0.1,
+                    opacity: Math.random()
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'white';
+            
+            stars.forEach(star => {
+                ctx.globalAlpha = star.opacity;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // تحريك النجوم (Loop)
+                star.y += star.speed;
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+                
+                // وميض بسيط
+                star.opacity += (Math.random() - 0.5) * 0.05;
+                if (star.opacity < 0.1) star.opacity = 0.1;
+                if (star.opacity > 1) star.opacity = 1;
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        draw();
+    </script>
 </body>
 </html>
